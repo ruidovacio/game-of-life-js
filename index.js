@@ -6,6 +6,7 @@ let newCellsGrid = []
 let running = false
 let bucle = undefined
 let genCount = 0
+let randomGen = false
 const gridSize = 10
 
 //Crear grid
@@ -14,7 +15,14 @@ function createGrid() {
   for (let y = 0; y < gridSize; y++) {
     const cellsRow = []
     for (let x = 0; x < gridSize; x++) {
-      cellsRow.push({ x: x, y: y, state: false })
+      cell = { x: x, y: y, state: false }
+      if (randomGen) {
+        randomNum = Math.random()
+        if (randomNum>0.5){
+          cell.state = true
+        }
+      }
+      cellsRow.push(cell)
     }
     cellsGrid.push(cellsRow)
   }
@@ -23,6 +31,7 @@ function createGrid() {
 
 function navButton() {
   navbar.innerHTML = ""
+
   run = document.createElement("button")
   run.classList.add("parameter")
   if (!running) {
@@ -32,6 +41,7 @@ function navButton() {
     run.classList.add("stop")
   }
   run.addEventListener("click", function () {
+    randomGen = false
     running = !running
     console.log(running);
     runSimulation();
@@ -43,12 +53,25 @@ function navButton() {
   clear.innerHTML = "clear"
   clear.addEventListener("click", function () {
     if (!running) {
+      randomGen = false
       createGrid();
     }
   })
 
+  randombtn = document.createElement("button")
+  randombtn.classList.add("parameter")
+  randombtn.innerHTML = "random"
+  randombtn.addEventListener("click", function () {
+    if (!running) {
+      randomGen = true
+      createGrid();
+    }
+  })
+
+
   navbar.appendChild(run)
   navbar.appendChild(clear)
+  navbar.appendChild(randombtn)
 }
 
 //Display grid
