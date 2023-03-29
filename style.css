@@ -1,0 +1,67 @@
+* {
+    background-color: black;
+    margin: 0 auto;
+    text-align: center;
+    font-family: monospace;
+}
+
+h1 {
+    color: white;
+    margin: 1rem;
+}
+
+#navbar {
+    margin-bottom: 2rem;
+}
+
+.parameter {
+    background-color: black;
+    color: white;
+    width: 5rem;
+    padding: 0.3rem;
+    margin: 1rem;
+    border: 1px;
+    border-color: white;
+    border-style: dashed;
+    border-radius: 0.5rem;
+}
+
+.stop {
+    background-color: white;
+    color: black;
+}
+
+.parameter:hover {
+    border-color: gray;
+}
+
+.boton {
+    width: 3rem;
+    height: 3rem;
+    margin: 3px;
+    border: 1px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 0.5rem;
+
+}
+
+.dead {
+    background-color: black;
+}
+
+.alive {
+    background-color: white;
+    box-shadow: 0rem 0rem 0.2rem white;
+}
+
+.boton:hover {
+    border-color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+    .boton {
+        width: 2rem;
+        height: 2rem;
+    }
+}
